@@ -119,40 +119,38 @@ def self_bin(Y,X,cat):
 
 
 
-
-if __name__ == '__main__':
-    data = pd.read_csv('TrainData.csv')
-    pinf = float('inf')#正无穷大
-    ninf = float('-inf')#负无穷大
-    dfx1, ivx1,cutx1,woex1=mono_bin(data.SeriousDlqin2yrs,data.RevolvingUtilizationOfUnsecuredLines,n=10)
-    dfx2, ivx2,cutx2,woex2=mono_bin(data.SeriousDlqin2yrs, data.age, n=10)
-    dfx4, ivx4,cutx4,woex4 =mono_bin(data.SeriousDlqin2yrs, data.DebtRatio, n=20)
-    dfx5, ivx5,cutx5,woex5 =mono_bin(data.SeriousDlqin2yrs, data.MonthlyIncome, n=10)
-    # 连续变量离散化
-    cutx3 = [ninf, 0, 1, 3, 5, pinf]
-    cutx6 = [ninf, 1, 2, 3, 5, pinf]
-    cutx7 = [ninf, 0, 1, 3, 5, pinf]
-    cutx8 = [ninf, 0,1,2, 3, pinf]
-    cutx9 = [ninf, 0, 1, 3, pinf]
-    cutx10 = [ninf, 0, 1, 2, 3, 5, pinf]
-    dfx3, ivx3,woex3 = self_bin(data.SeriousDlqin2yrs, data['NumberOfTime30-59DaysPastDueNotWorse'], cutx3)
-    dfx6, ivx6 ,woex6= self_bin(data.SeriousDlqin2yrs, data['NumberOfOpenCreditLinesAndLoans'], cutx6)
-    dfx7, ivx7,woex7 = self_bin(data.SeriousDlqin2yrs, data['NumberOfTimes90DaysLate'], cutx7)
-    dfx8, ivx8,woex8 = self_bin(data.SeriousDlqin2yrs, data['NumberRealEstateLoansOrLines'], cutx8)
-    dfx9, ivx9,woex9 = self_bin(data.SeriousDlqin2yrs, data['NumberOfTime60-89DaysPastDueNotWorse'], cutx9)
-    dfx10, ivx10,woex10 = self_bin(data.SeriousDlqin2yrs, data['NumberOfDependents'], cutx10)
-    ivlist=[ivx1,ivx2,ivx3,ivx4,ivx5,ivx6,ivx7,ivx8,ivx9,ivx10]
-    index=['x1','x2','x3','x4','x5','x6','x7','x8','x9','x10']
-    fig1 = plt.figure(1)
-    ax1 = fig1.add_subplot(1, 1, 1)
-    x = np.arange(len(index))+1
-    ax1.bar(x, ivlist, width=0.4)
-    ax1.set_xticks(x)
-    ax1.set_xticklabels(index, rotation=0, fontsize=12)
-    ax1.set_ylabel('IV(Information Value)', fontsize=14)
-    for a, b in zip(x, ivlist):
-        plt.text(a, b + 0.01, '%.4f' % b, ha='center', va='bottom', fontsize=10)
-    plt.show()  
+data = pd.read_csv('TrainData.csv')
+pinf = float('inf')#正无穷大
+ninf = float('-inf')#负无穷大
+dfx1, ivx1,cutx1,woex1=mono_bin(data.SeriousDlqin2yrs,data.RevolvingUtilizationOfUnsecuredLines,n=10)
+dfx2, ivx2,cutx2,woex2=mono_bin(data.SeriousDlqin2yrs, data.age, n=10)
+dfx4, ivx4,cutx4,woex4 =mono_bin(data.SeriousDlqin2yrs, data.DebtRatio, n=20)
+dfx5, ivx5,cutx5,woex5 =mono_bin(data.SeriousDlqin2yrs, data.MonthlyIncome, n=10)
+    # 
+cutx3 = [ninf, 0, 1, 3, 5, pinf]
+cutx6 = [ninf, 1, 2, 3, 5, pinf]
+cutx7 = [ninf, 0, 1, 3, 5, pinf]
+cutx8 = [ninf, 0,1,2, 3, pinf]
+cutx9 = [ninf, 0, 1, 3, pinf]
+cutx10 = [ninf, 0, 1, 2, 3, 5, pinf]
+dfx3, ivx3,woex3 = self_bin(data.SeriousDlqin2yrs, data['NumberOfTime30-59DaysPastDueNotWorse'], cutx3)
+dfx6, ivx6 ,woex6= self_bin(data.SeriousDlqin2yrs, data['NumberOfOpenCreditLinesAndLoans'], cutx6)
+dfx7, ivx7,woex7 = self_bin(data.SeriousDlqin2yrs, data['NumberOfTimes90DaysLate'], cutx7)
+dfx8, ivx8,woex8 = self_bin(data.SeriousDlqin2yrs, data['NumberRealEstateLoansOrLines'], cutx8)
+dfx9, ivx9,woex9 = self_bin(data.SeriousDlqin2yrs, data['NumberOfTime60-89DaysPastDueNotWorse'], cutx9)
+dfx10, ivx10,woex10 = self_bin(data.SeriousDlqin2yrs, data['NumberOfDependents'], cutx10)
+ivlist=[ivx1,ivx2,ivx3,ivx4,ivx5,ivx6,ivx7,ivx8,ivx9,ivx10]
+index=['x1','x2','x3','x4','x5','x6','x7','x8','x9','x10']
+fig1 = plt.figure(1)
+ax1 = fig1.add_subplot(1, 1, 1)
+x = np.arange(len(index))+1
+ax1.bar(x, ivlist, width=0.4)
+ax1.set_xticks(x)
+ax1.set_xticklabels(index, rotation=0, fontsize=12)
+ax1.set_ylabel('IV(Information Value)', fontsize=14)
+for a, b in zip(x, ivlist):
+     plt.text(a, b + 0.01, '%.4f' % b, ha='center', va='bottom', fontsize=10)
+plt.show()  
 	
 	
 #check corr
