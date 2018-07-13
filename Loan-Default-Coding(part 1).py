@@ -120,8 +120,8 @@ def self_bin(Y,X,cat):
 
 
 data = pd.read_csv('TrainData.csv')
-pinf = float('inf')#正无穷大
-ninf = float('-inf')#负无穷大
+pinf = float('inf')#
+ninf = float('-inf')#
 dfx1, ivx1,cutx1,woex1=mono_bin(data.SeriousDlqin2yrs,data.RevolvingUtilizationOfUnsecuredLines,n=10)
 dfx2, ivx2,cutx2,woex2=mono_bin(data.SeriousDlqin2yrs, data.age, n=10)
 dfx4, ivx4,cutx4,woex4 =mono_bin(data.SeriousDlqin2yrs, data.DebtRatio, n=20)
