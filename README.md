@@ -3,11 +3,10 @@ This repo contains a modeling for Credit Default using python with a large semi-
 
 The original data_set is called " cs-training" from Kaggle.com, which i have been uploaded in this repo and the final score card result has also been uploaded.
 
-# 1.import the data and clean up: 
-After we check the Describedata.csv we created, the variables" MonthlyIncome" and "NumberOfDependents" have lost some data.
-we can not remove "MonthlyIncome" instead we use Random Forest to make up. but for NumberOfDependents, we can just remove it.
-    
-  ![output_9_0](https://user-images.githubusercontent.com/39636026/42730327-3989470e-8825-11e8-90fe-dbe8baf2071c.png)
+# 1.import the data and clean them up: 
+After we check the Describedata.csv we created:
+![discrip_of_data](https://user-images.githubusercontent.com/39636026/42730452-f043b5e6-8826-11e8-8608-df4d1287b4d5.png)the variables" MonthlyIncome" and "NumberOfDependents" have lost some data.we can not remove "MonthlyIncome" instead we use Random Forest to make up. but for NumberOfDependents, we can just remove it.
+ 
 
     
    
