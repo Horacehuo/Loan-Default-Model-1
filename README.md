@@ -9,4 +9,7 @@ Please check the html format file for an overlook( with graphs), this repo will 
     After we check the Describedata.csv we created, the variables" MonthlyIncome" and "NumberOfDependents" have lost some data.
     we can not remove "MonthlyIncome" instead we use Random Forest to make up. but for NumberOfDependents, we can just remove it.
     
+  ![output_9_0](https://user-images.githubusercontent.com/39636026/42730327-3989470e-8825-11e8-90fe-dbe8baf2071c.png)
+
+    
    
